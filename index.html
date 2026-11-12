@@ -149,13 +149,26 @@
       <h3>ඔබේ ඉංක් එක අදම පටන් ගමු</h3>
       <p class="lead">නිර්මාණය ගැන WhatsApp එකෙන් අපට කියන්න</p>
       <a class="go" style="max-width:260px" id="wa" target="_blank">WhatsApp කරන්න</a>
+      <a class="go out" style="max-width:260px" id="tt" target="_blank" rel="noopener">TikTok බලන්න</a>
+      <div id="ttEmbed" style="margin-top:24px;width:100%;max-width:340px;display:flex;justify-content:center"></div>
     </section>
   </div>
 </div>
 
 <script>
   const $ = id => document.getElementById(id);
-  const WHATSAPP = '94XXXXXXXXX';   // <-- ඔබේ WhatsApp අංකය (94 සමඟ) මෙතැනට දාන්න
+  const WHATSAPP = '94 78 714 0266';   // <-- ඔබේ WhatsApp අංකය (94 සමඟ) මෙතැනට දාන්න
+  const TT_USER = 'randika7487';   // <-- TikTok username එක (@ නැතුව) මෙතැනට දාන්න
+  const TIKTOK = 'https://www.tiktok.com/@' + TT_USER;
+  $('tt').href = TIKTOK;
+  if (TT_USER !== 'YOUR_USERNAME') {
+    $('ttEmbed').innerHTML = '<blockquote class="tiktok-embed" cite="' + TIKTOK + '" data-unique-id="' + TT_USER +
+      '" data-embed-type="creator" style="max-width:340px;min-width:288px;"><section><a target="_blank" href="' + TIKTOK +
+      '">@' + TT_USER + '</a></section></blockquote>';
+    const sc = document.createElement('script');
+    sc.src = 'https://www.tiktok.com/embed.js'; sc.async = true;
+    document.body.appendChild(sc);
+  }
   $('wa').href = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent('Hi, Tattoo එකක් ගැන දැනගන්න ඕනේ.');
 
   /* ---------- studio ---------- */
